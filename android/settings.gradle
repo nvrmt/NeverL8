@@ -1,0 +1,3 @@
+rootProject.name = 'NeverL8'
+
+include ':app'
