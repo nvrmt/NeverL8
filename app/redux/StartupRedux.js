@@ -2,34 +2,35 @@
 import robodux from 'robodux';
 import { createStore, combineReducers, Action } from 'redux';
 
-interface User {
-	name: string;
+interface Startup {
+	updated: boolean;
 }
 
 interface State {
-	user: User;
-	counter: number;
-}
-interface UserActions {
-	setUserName: (payload: string) => Action;
+	startup: Startup;
 }
 
-const user = robodux<User, UserActions, State>({
-	slice: 'user', // slice is optional could be blank ''
-	initialState: { name: '' },
+interface StartupActions {
+	checkForUpdates: (payload: boolean) => Action;
+	checkForUpdates_Success: (payload: boolean) => Action;
+	checkForUpdates_Failure: (payload: boolean) => Action;
+}
+
+export const StartupRedux = robodux<Startup, StartupActions, State>({
+	slice: 'startup',
+	initialState: {updated: false},
 	actions: {
-		setUserName: (state: User, payload: string) => {
-			state.name = payload; // mutate the state all you want with immer
+		checkForUpdates: (state: Startup, payload: boolean) => {
+		},
+		checkForUpdates_Success: (state: Startup, payload: boolean) => {
+			state.updated = payload;
+		},
+		checkForUpdates_Failure: (state: Startup, payload: boolean) => {
+			state.updated = payload;
 		},
 	}
 });
 
-const reducer = combineReducers({
-	user: user.reducer,
-});
+// Selectors
 
-const store = createStore(reducer);
-
-store.dispatch(user.actions.setUserName('eric'));
-const state = store.getState();
-console.log(user.selectors.getUser(state));
+export const reducer = StartupRedux.reducer;

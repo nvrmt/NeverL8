@@ -1,15 +1,10 @@
-import { StyleSheet } from "react-native";
+import {StyleSheet} from "react-native";
 
 export const styles = StyleSheet.create({
-	header: {
-		...StyleSheet.absoluteFillObject,
-		flex: 1,
-		alignSelf: 'stretch',
-		width: '100%'
-	},
 	container: {
 		...StyleSheet.absoluteFillObject,
 		flex: 1,
+		backgroundColor: '#f5f5f5',
 		justifyContent: 'center',
 		alignItems: 'center'
 	}
