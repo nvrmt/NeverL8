@@ -12,7 +12,7 @@ import {StartupRedux} from '../../redux/StartupRedux';
 import {styles} from './style';
 import { Grid, Row, Col } from "react-native-easy-grid";
 
-class LaunchScreen extends Component {
+class AlarmScreen extends Component {
 	constructor(props) {
 		super(props);
 
@@ -24,21 +24,13 @@ class LaunchScreen extends Component {
 			<Grid>
 				<Row style={styles.container}>
 					<View>
-						<Text h4>Launch Screen</Text>
-						<Button title={"Enter"} onPress={this._onPress}/>
+						<Text h4>Alarm Screen</Text>
 					</View>
 				</Row>
 			</Grid>
 
 		);
 	}
-
-
-	_onPress = () => {
-		//this.props.dispatch(AlarmRedux.actions.checkAlarms());
-
-		mainScreen();
-	};
 }
 
 const mapStateToProps = (state) => {
@@ -50,4 +42,4 @@ const mapDispatchToProps = (dispatch) => {
 };
 
 
-export default connect(mapStateToProps, null)(LaunchScreen);
+export default connect(mapStateToProps, null)(AlarmScreen);

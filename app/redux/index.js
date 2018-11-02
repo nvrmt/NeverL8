@@ -6,7 +6,8 @@ import {rootEpic} from "../epics";
 /* ------------- Assemble The Reducers ------------- */
 
 export const reducers = combineReducers({
-	startup: require('../redux/StartupRedux').reducer
+	startup: require('../redux/StartupRedux').reducer,
+	navigation: require('../redux/NavigationRedux').reducer
 });
 
 

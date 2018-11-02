@@ -1,20 +1,24 @@
 import React from 'react';
 import {Navigation} from "react-native-navigation";
+import Icon from "react-native-vector-icons/FontAwesome";
 
 // Screens
 import Launch from './LaunchScreen';
 import Home from './HomeScreen';
 import _Map from './MapScreen';
-import Icon from "react-native-vector-icons/FontAwesome";
+import Alarm from './AlarmScreen';
+
 
 export const LAUNCH_SCREEN = 'neverl8.LaunchScreen';
 export const HOME_SCREEN = 'neverl8.HomeScreen';
 export const MAP_SCREEN = 'neverl8.MapScreen';
+export const ALARM_SCREEN = 'neverl8.AlarmScreen';
 
 export const Screens = new Map();
 Screens.set(LAUNCH_SCREEN, Launch);
 Screens.set(HOME_SCREEN, Home);
 Screens.set(MAP_SCREEN, _Map);
+Screens.set(ALARM_SCREEN, Alarm);
 
 export const startApp = () => {
 
@@ -44,7 +48,11 @@ export async function mainScreen() {
 								bottomTab: {
 									fontSize: 12,
 									text: 'Home',
-									icon: homeIcon
+									icon: homeIcon,
+									iconColor: 'black',
+									selectedIconColor: '#8d21ff',
+									textColor: 'black',
+									selectedTextColor: '#ed93ff',
 								}
 							}
 						},
@@ -54,9 +62,29 @@ export async function mainScreen() {
 							name: MAP_SCREEN,
 							options: {
 								bottomTab: {
-									text: 'Live Map',
+									text: 'Map',
 									fontSize: 12,
-									icon: mapIcon
+									icon: mapIcon,
+									iconColor: 'black',
+									selectedIconColor: '#8d21ff',
+									textColor: 'black',
+									selectedTextColor: '#ed93ff',
+								}
+							}
+						},
+					},
+					{
+						component: {
+							name: ALARM_SCREEN,
+							options: {
+								bottomTab: {
+									fontSize: 12,
+									text: 'Alarms',
+									icon: homeIcon,
+									iconColor: 'black',
+									selectedIconColor: '#8d21ff',
+									textColor: 'black',
+									selectedTextColor: '#ed93ff',
 								}
 							}
 						},
@@ -70,5 +98,3 @@ export async function mainScreen() {
 async function getIcon(name) {
 	return await Icon.getImageSource(name);
 }
-
-//TODO Install reactotron, rxjs, redux observables
